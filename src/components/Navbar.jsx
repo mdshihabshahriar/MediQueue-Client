@@ -60,7 +60,7 @@ const Navbar = () => {
               <Link href={"/"} className="font-semibold hover:bg-transparent">Home</Link>
             </li>
             <li>
-              <Link href={"/tutor"} className="font-semibold hover:bg-transparent">Tutor</Link>
+              <Link href={"/tutors"} className="font-semibold hover:bg-transparent">Tutors</Link>
             </li>
             <li>
               <Link href={"/add-tutor"} className="font-semibold hover:bg-transparent">Add Tutor</Link>

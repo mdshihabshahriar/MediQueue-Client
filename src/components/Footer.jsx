@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-50 mt-20">
+    <div className="bg-[#F8F6FF] mt-20">
     <footer className="footer sm:footer-horizontal text-base-content py-10 container mx-auto">
       <aside>
         <Image src='/assets/logo.PNG' width={200} height={100} alt="logo image"></Image>
