@@ -31,7 +31,7 @@ const TutorCard = ({ tutor }) => {
             {tutor.tutorName}
           </h2>
           <span className="mt-2 inline-block bg-[#534AB7] text-[#EEEDFE] text-[11px] px-3 py-1 rounded-full tracking-wide">
-            {tutor.subjects.join(" · ")}
+            {tutor.subjects.join(" · ").toUpperCase()}
           </span>
         </div>
       </div>
