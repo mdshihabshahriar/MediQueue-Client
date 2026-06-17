@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const TutorCard = ({ tutor }) => {
   const initials = tutor.tutorName
@@ -58,9 +59,9 @@ const TutorCard = ({ tutor }) => {
           </div>
         </div>
 
-        <button className="w-full bg-[#534AB7] hover:bg-[#3C3489] active:scale-[0.98] text-[#EEEDFE] py-3 rounded-xl text-sm font-medium transition-all duration-150">
+        <Link href={`/tutors/${tutor._id}`}><button className="btn w-full bg-[#534AB7] hover:bg-[#3C3489] text-[#EEEDFE] py-3 rounded-xl text-sm font-medium">
           Book session
-        </button>
+        </button></Link>
       </div>
     </div>
   );
