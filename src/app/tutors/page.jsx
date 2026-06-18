@@ -6,7 +6,7 @@ const TutorPage = async () => {
   const res = await fetch("http://localhost:5001/tutors");
   const tutors = await res.json();
 
-  console.log(tutors);
+  // console.log(tutors);
 
   return (
     <div>

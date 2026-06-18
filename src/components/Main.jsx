@@ -40,7 +40,7 @@ const features = [
 const MainSection = async () => {
   const res = await fetch("http://localhost:5001/featured");
   const tutors = await res.json();
-  console.log(tutors);
+  // console.log(tutors);
   return (
     <div className="container mx-auto mt-5">
       <div className="flex justify-between items-center">

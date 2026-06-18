@@ -74,8 +74,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end"> 
-            <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Login</button>
-            <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Register</button>
+            <Link href={'/login'}><button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Login</button></Link>
+            <Link href={'/signup'}><button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Register</button></Link>
         </div>
       </div>
     </div>
