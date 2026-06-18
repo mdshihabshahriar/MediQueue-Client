@@ -34,6 +34,12 @@ const onSubmit = async (e) => {
   }
 };
 
+const handleGoogleSignin = async () => {
+    await authClient.signIn.social({
+        provider: "google"
+    })
+}
+
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -109,7 +115,6 @@ const SignUpPage = () => {
               </div>
             </TextField>
 
-            {/* Password */}
             <TextField
               isRequired
               minLength={8}
@@ -163,16 +168,15 @@ const SignUpPage = () => {
             <hr className="flex-1 border-gray-200 dark:border-zinc-700" />
           </div>
 
-          {/* Google Button */}
           <button
             type="button"
-            className="w-full py-2.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 font-medium text-sm transition-all flex items-center justify-center gap-2"
+            onClick={handleGoogleSignin}
+            className="btn w-full py-2.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 font-medium text-sm transition-all flex items-center justify-center gap-2"
           >
             <FcGoogle size={18} />
             Continue with Google
           </button>
 
-          {/* Footer */}
           <p className="text-center text-sm text-gray-400 mt-5">
             Already have an account?{" "}
             <a href="/login" className="text-violet-600 dark:text-violet-400 font-medium hover:underline">

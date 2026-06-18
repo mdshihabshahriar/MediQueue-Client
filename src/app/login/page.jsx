@@ -18,7 +18,7 @@ import { FiEye, FiEyeOff, FiLock, FiMail, FiZap } from "react-icons/fi";
 
 const LoginPage = () => {
 
-    const router = useRouter()
+  const router = useRouter()
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +40,12 @@ const LoginPage = () => {
       router.push("/");
     }
   };
+
+  const handleGoogleSignin = async () => {
+    await authClient.signIn.social({
+        provider: "google"
+    })
+}
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -138,7 +144,7 @@ const LoginPage = () => {
               <hr className="flex-1 border-gray-200 dark:border-zinc-700" />
             </div>
 
-            <button
+            <button onClick={handleGoogleSignin}
               className="btn w-full py-2.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 font-medium text-sm transition-all flex items-center justify-center gap-2"
             >
               <FcGoogle size={18} />

@@ -121,7 +121,7 @@ const Navbar = () => {
           {user ? (
             <>
               <Avatar>
-                <Avatar.Image src={user?.image} />
+                <Avatar.Image referrerPolicy="no-referrer" src={user?.image} />
                 <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
               </Avatar>
                 <Button onClick={handleSignOut} variant="danger" className='rounded-sm'>
