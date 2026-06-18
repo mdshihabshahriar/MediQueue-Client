@@ -1,8 +1,20 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+  const { data: session } = authClient.useSession();
+
+  const user = session?.user;
+  // console.log(user);
+
+  const handleSignOut = async () => {
+      await authClient.signOut();
+  }
+
   return (
     <div className="bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="navbar container mx-auto">
@@ -30,19 +42,29 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href={"/"} className="font-semibold">Home</Link>
+                <Link href={"/"} className="font-semibold">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href={"/tutor"} className="font-semibold">Tutor</Link>
+                <Link href={"/tutor"} className="font-semibold">
+                  Tutor
+                </Link>
               </li>
               <li>
-                <Link href={"/add-tutor"} className="font-semibold">Add Tutor</Link>
+                <Link href={"/add-tutor"} className="font-semibold">
+                  Add Tutor
+                </Link>
               </li>
               <li>
-                <Link href={"/my-tutors"} className="font-semibold">My Tutors</Link>
+                <Link href={"/my-tutors"} className="font-semibold">
+                  My Tutors
+                </Link>
               </li>
               <li>
-                <Link href={"/booked"} className="font-semibold">My Booked Sessions</Link>
+                <Link href={"/booked"} className="font-semibold">
+                  My Booked Sessions
+                </Link>
               </li>
             </ul>
           </div>
@@ -57,25 +79,69 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={"/"} className="font-semibold hover:bg-transparent">Home</Link>
+              <Link href={"/"} className="font-semibold hover:bg-transparent">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href={"/tutors"} className="font-semibold hover:bg-transparent">Tutors</Link>
+              <Link
+                href={"/tutors"}
+                className="font-semibold hover:bg-transparent"
+              >
+                Tutors
+              </Link>
             </li>
             <li>
-              <Link href={"/add-tutor"} className="font-semibold hover:bg-transparent">Add Tutor</Link>
+              <Link
+                href={"/add-tutor"}
+                className="font-semibold hover:bg-transparent"
+              >
+                Add Tutor
+              </Link>
             </li>
             <li>
-              <Link href={"/my-tutors"} className="font-semibold hover:bg-transparent">My Tutors</Link>
+              <Link
+                href={"/my-tutors"}
+                className="font-semibold hover:bg-transparent"
+              >
+                My Tutors
+              </Link>
             </li>
             <li>
-              <Link href={"/booked"} className="font-semibold hover:bg-transparent">My Booked Sessions</Link>
+              <Link
+                href={"/booked"}
+                className="font-semibold hover:bg-transparent"
+              >
+                My Booked Sessions
+              </Link>
             </li>
           </ul>
         </div>
-        <div className="navbar-end"> 
-            <Link href={'/login'}><button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Login</button></Link>
-            <Link href={'/signup'}><button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">Register</button></Link>
+        <div className="navbar-end gap-2">
+          {user ? (
+            <>
+              <Avatar>
+                <Avatar.Image src={user?.image} />
+                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+                <Button onClick={handleSignOut} variant="danger" className='rounded-sm'>
+                  Logout
+                </Button>
+            </>
+          ) : (
+            <>
+              <Link href={"/login"}>
+                <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">
+                  Login
+                </button>
+              </Link>
+              <Link href={"/signup"}>
+                <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

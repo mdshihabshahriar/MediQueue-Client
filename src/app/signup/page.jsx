@@ -41,7 +41,6 @@ const SignUpPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-violet-50 via-purple-50 to-indigo-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800 p-4">
       <Card className="w-full max-w-md shadow-2xl rounded-2xl border border-white/60 dark:border-zinc-700/50 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm">
 
-        {/* Header */}
         <div className="flex flex-col items-center gap-1 pt-8 pb-4 px-8">
           <div className="w-12 h-12 rounded-2xl bg-violet-600 flex items-center justify-center mb-3 shadow-lg shadow-violet-300 dark:shadow-violet-900">
             <FiZap size={22} color="white" />
@@ -54,11 +53,9 @@ const SignUpPage = () => {
           </p>
         </div>
 
-        {/* Form */}
         <div className="px-8 pb-8">
           <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
 
-            {/* Name */}
             <TextField name="name" type="text" isRequired className="flex flex-col gap-1">
               <Label className="text-sm font-medium text-gray-700 dark:text-zinc-300">Full Name</Label>
               <div className="relative flex items-center">
@@ -72,7 +69,6 @@ const SignUpPage = () => {
               </div>
             </TextField>
 
-            {/* Email */}
             <TextField
               isRequired
               name="email"
@@ -98,7 +94,6 @@ const SignUpPage = () => {
               <FieldError className="text-xs text-red-500 px-1" />
             </TextField>
 
-            {/* Image URL */}
             <TextField name="image" type="url" className="flex flex-col gap-1">
               <Label className="text-sm font-medium text-gray-700 dark:text-zinc-300">
                 Photo URL <span className="text-gray-400 font-normal">(optional)</span>
