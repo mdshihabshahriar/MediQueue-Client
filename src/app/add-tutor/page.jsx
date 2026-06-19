@@ -42,20 +42,22 @@ const AddTutorPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const tutor = Object.fromEntries(formData.entries());
-    tutor.subjects = subjects.map(s => s.value);
-    tutor.teachingMode = teachingMode.map(m => m.value);
+    tutor.subjects = subjects.map((s) => s.value);
+    tutor.teachingMode = teachingMode.map((m) => m.value);
+    tutor.hourlyFee = Number(tutor.hourlyFee);
+    tutor.totalSlot = Number(tutor.totalSlot);
     console.log(tutor);
 
-    const res = await fetch('http://localhost:5001/tutors', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(tutor)
-    })
-    const data = await res.json()
+    const res = await fetch("http://localhost:5001/tutors", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(tutor),
+    });
+    const data = await res.json();
 
-    console.log(data)
+    console.log(data);
   };
 
   return (
@@ -94,7 +96,7 @@ const AddTutorPage = () => {
               </TextField>
               <Label className="text-sm font-bold">Subject/Category</Label>
               <Select
-                instanceId="subjects-select"      
+                instanceId="subjects-select"
                 isMulti
                 options={subjectOptions}
                 value={subjects}
@@ -117,9 +119,7 @@ const AddTutorPage = () => {
                 name="hourlyFee"
                 placeholder="e.g. 100"
               >
-                <Label className="text-sm font-bold">
-                  Hourly Fee
-                </Label>
+                <Label className="text-sm font-bold">Hourly Fee</Label>
                 <NumberField.Group className="flex">
                   <NumberField.Input className="flex-1" />
                   <div className="flex h-full flex-col border-l border-field-placeholder/15">
@@ -272,7 +272,6 @@ const AddTutorPage = () => {
                 value={teachingMode}
                 onChange={(selected) => setTeachingMode(selected || [])}
                 placeholder="Select Mode"
-                
               />
             </FieldGroup>
             <Fieldset.Actions>
