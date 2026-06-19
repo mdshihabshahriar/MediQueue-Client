@@ -30,7 +30,7 @@ const LoginPage = () => {
       email: user.email,
       password: user.password,
     });
-    console.log("Sign up response:", { data, error });
+    // console.log("Sign up response:", { data, error });
 
     if (error) {
       toast.error(error.message);

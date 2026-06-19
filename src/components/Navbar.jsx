@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Navbar = () => {
@@ -11,9 +12,12 @@ const Navbar = () => {
   const user = session?.user;
   // console.log(user);
 
+  const router = useRouter()
+
   const handleSignOut = async () => {
-      await authClient.signOut();
-  }
+    await authClient.signOut();
+    router.push('/');
+  };
 
   return (
     <div className="bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
@@ -120,13 +124,42 @@ const Navbar = () => {
         <div className="navbar-end gap-2">
           {user ? (
             <>
-              <Avatar>
+              {/* <Avatar>
                 <Avatar.Image referrerPolicy="no-referrer" src={user?.image} />
                 <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-              </Avatar>
-                <Button onClick={handleSignOut} variant="danger" className='rounded-sm'>
-                  Logout
-                </Button>
+              </Avatar> */}
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <Image
+                      alt={user.name}
+                      src={user?.image} 
+                      width={10} height={10}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <Link href={'/my-profile'} className="justify-center font-bold">
+                      My Profile
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <Button
+                onClick={handleSignOut}
+                variant="danger"
+                className="rounded-sm"
+              >
+                Logout
+              </Button>
             </>
           ) : (
             <>
