@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Card,
@@ -15,6 +16,7 @@ import {
   NumberField,
 } from "@heroui/react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Select from "react-select";
 
 const subjectOptions = [
@@ -37,16 +39,20 @@ const modeOptions = [
 const AddTutorPage = () => {
   const [subjects, setSubjects] = useState([]);
   const [teachingMode, setTeachingMode] = useState([]);
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const tutor = Object.fromEntries(formData.entries());
+    tutor.createdBy = user.id;
     tutor.subjects = subjects.map((s) => s.value);
     tutor.teachingMode = teachingMode.map((m) => m.value);
     tutor.hourlyFee = Number(tutor.hourlyFee);
     tutor.totalSlot = Number(tutor.totalSlot);
-    console.log(tutor);
+    tutor.sessionDate = new Date(tutor.sessionDate).toISOString();
+    // console.log(tutor);
 
     const res = await fetch("http://localhost:5001/tutors", {
       method: "POST",
@@ -57,7 +63,9 @@ const AddTutorPage = () => {
     });
     const data = await res.json();
 
-    console.log(data);
+    toast.success("Tutor added successfully!");
+
+    // console.log(data);
   };
 
   return (
