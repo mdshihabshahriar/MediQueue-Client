@@ -49,7 +49,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
         tutorId: tutor._id,
         tutorName: tutor.tutorName,
         studentEmail: user.email,
-        bookStatus: "pending",
+        bookStatus: "Confirmed",
         createdAt: new Date().toISOString(),
       };
 

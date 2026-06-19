@@ -62,7 +62,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/booked"} className="font-semibold">
+                <Link href={"/my-booked-sessions"} className="font-semibold">
                   My Booked Sessions
                 </Link>
               </li>
@@ -109,7 +109,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href={"/booked"}
+                href={"/my-booked-sessions"}
                 className="font-semibold hover:bg-transparent"
               >
                 My Booked Sessions
