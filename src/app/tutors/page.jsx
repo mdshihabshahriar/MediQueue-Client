@@ -1,9 +1,18 @@
 import TutorCard from "@/components/TutorCard";
+import { auth } from "@/lib/auth";
 import { GraduationCap } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 
 const TutorPage = async () => {
-  const res = await fetch("http://localhost:5001/tutors");
+  const {token} = await auth.api.getToken({
+      headers: await headers()
+  })
+  const res = await fetch("http://localhost:5001/tutors",{
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  });
   const tutors = await res.json();
 
   // console.log(tutors);
