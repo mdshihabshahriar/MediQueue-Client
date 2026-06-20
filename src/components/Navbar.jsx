@@ -96,7 +96,10 @@ const Navbar = () => {
                 Tutors
               </Link>
             </li>
-            <li>
+            {
+              user ? (
+                <>
+                  <li>
               <Link
                 href={"/add-tutor"}
                 className="font-semibold hover:bg-transparent"
@@ -120,6 +123,11 @@ const Navbar = () => {
                 My Booked Sessions
               </Link>
             </li>
+                </>
+              ):(
+                <></>
+              )
+            }
           </ul>
         </div>
         <div className="navbar-end gap-2">
