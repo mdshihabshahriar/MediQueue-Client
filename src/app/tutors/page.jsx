@@ -5,9 +5,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 
 const TutorPage = async () => {
-  const {token} = await auth.api.getToken({
-      headers: await headers()
-  })
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`);
   const tutors = await res.json();
 
