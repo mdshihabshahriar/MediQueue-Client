@@ -1,15 +1,45 @@
+"use client";
 import TutorCard from "@/components/TutorCard";
-import { auth } from "@/lib/auth";
 import { GraduationCap } from "lucide-react";
-import { headers } from "next/headers";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const TutorPage = async () => {
+const TutorPage = () => {
+  const [tutors, setTutors] = useState([]);
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`);
-  const tutors = await res.json();
+  const [search, setSearch] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
-  // console.log(tutors);
+  const fetchTutors = async (s = search, sd = startDate, ed = endDate) => {
+    const params = new URLSearchParams();
+
+    if (s) params.append("search", s);
+    if (sd) params.append("startDate", sd);
+    if (ed) params.append("endDate", ed);
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${params.toString()}`,
+    );
+    const data = await res.json();
+    setTutors(data);
+  };
+
+  useEffect(() => {
+    fetchTutors();
+  }, []);
+
+  const handleFilter = () => {
+    fetchTutors();
+  };
+
+  const handleReset = () => {
+    setSearch("");
+    setStartDate("");
+    setEndDate("");
+
+    fetchTutors("", "", "");
+  };
 
   return (
     <div>
@@ -43,17 +73,48 @@ const TutorPage = async () => {
 
       <section className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-5 gap-4">
-          <input
-            type="text"
-            placeholder="Search tutors..."
-            className="input input-bordered col-span-2"
-          />
+          <div>
+            <label className="text-sm font-medium text-gray-600 dark:text-gray-300">
+              Search Tutor
+            </label>
+            <input
+              type="text"
+              placeholder="Search tutors..."
+              className="input input-bordered w-full"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
 
-          <input type="date" className="input input-bordered" />
+          <div>
+            <label className="text-sm font-medium text-gray-600 dark:text-gray-300">
+              Start Date
+            </label>
+            <input
+              type="date"
+              className="input input-bordered w-full"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </div>
 
-          <input type="date" className="input input-bordered" />
+          <div>
+            <label className="text-sm font-medium text-gray-600 dark:text-gray-300">
+              End Date
+            </label>
+            <input
+              type="date"
+              className="input input-bordered w-full"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </div>
 
-          <button className="btn bg-primary text-white">Filter</button>
+          <div className="md:flex items-end gap-2">
+            <button className="btn bg-primary w-full text-white">Filter</button>
+
+            <button className="btn btn-outline w-full">Reset</button>
+          </div>
         </div>
       </section>
 
