@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -14,6 +15,7 @@ const CancelBookingModal = ({
   if (!isOpen) return null;
 
   const handleCancel = async () => {
+    const {data:tokenData} = await authClient.token()
     try {
       setLoading(true);
 
@@ -21,6 +23,10 @@ const CancelBookingModal = ({
         `http://localhost:5001/bookings/${booking._id}`,
         {
           method: "DELETE",
+          headers: {
+            'content-type': "application/json", 
+            authorization: `Bearer ${tokenData?.token}`
+          }
         }
       );
 

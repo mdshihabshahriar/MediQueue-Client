@@ -53,9 +53,15 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
         createdAt: new Date().toISOString(),
       };
 
+      const {data:tokenData} = await authClient.token()
+      console.log(tokenData)
+
       const bookingRes = await fetch("http://localhost:5001/bookings", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          authorization: `Bearer ${tokenData.token}`
+         },
         body: JSON.stringify(bookingData),
       });
       const bookingResult = await bookingRes.json();
