@@ -18,7 +18,7 @@ const MyTutorsPage = () => {
   useEffect(() => {
     if (!user?.id) return;
 
-    fetch(`http://localhost:5001/my-tutors?userId=${user.id}`)
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors?userId=${user.id}`)
       .then((res) => res.json())
       .then((data) => {
         setTutors(Array.isArray(data) ? data : []);

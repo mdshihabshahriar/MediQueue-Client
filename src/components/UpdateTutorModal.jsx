@@ -35,7 +35,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
     };
 
     try {
-      const res = await fetch(`http://localhost:5001/tutors/${tutor._id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${tutor._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updateData),

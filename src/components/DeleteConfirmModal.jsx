@@ -12,7 +12,7 @@ const DeleteConfirmModal = ({ tutor, isOpen, onClose, onDeleted }) => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5001/tutors/${tutor._id}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${tutor._id}`,
         { method: "DELETE" }
       );
 

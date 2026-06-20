@@ -38,7 +38,7 @@ const features = [
 ];
 
 const MainSection = async () => {
-  const res = await fetch("http://localhost:5001/featured");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/featured`);
   const tutors = await res.json();
   // console.log(tutors);
   return (

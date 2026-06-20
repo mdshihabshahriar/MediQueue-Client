@@ -56,7 +56,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
       const {data:tokenData} = await authClient.token()
       console.log(tokenData)
 
-      const bookingRes = await fetch("http://localhost:5001/bookings", {
+      const bookingRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",

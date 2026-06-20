@@ -16,7 +16,7 @@ const MyBookingsPage = () => {
   useEffect(() => {
     if (!user?.id) return;
 
-    fetch(`http://localhost:5001/my-bookings?userId=${user.id}`)
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings?userId=${user.id}`)
       .then((res) => res.json())
       .then((data) => {
         setBookings(Array.isArray(data) ? data : []);
