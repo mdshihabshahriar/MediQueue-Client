@@ -3,11 +3,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F8F6FF] mt-20">
+    <div className="bg-[#F8F6FF] dark:bg-slate-900 mt-20">
     <footer className="footer sm:footer-horizontal text-base-content py-10 container mx-auto">
       <aside>
         <Image src='/assets/logo.PNG' width={200} height={100} alt="logo image"></Image>
-        <p>
+        <p className="dark:text-slate-300">
           MediQueue is your trusted platform
           <br />
           to find expert tutors and book
@@ -15,21 +15,21 @@ const Footer = () => {
           sessions online anytime, anywhere
         </p>
       </aside>
-      <nav>
+      <nav className="dark:text-slate-300">
         <h6 className="footer-title">Services</h6>
         <a className="link link-hover">Branding</a>
         <a className="link link-hover">Design</a>
         <a className="link link-hover">Marketing</a>
         <a className="link link-hover">Advertisement</a>
       </nav>
-      <nav>
+      <nav className="dark:text-slate-300">
         <h6 className="footer-title">Company</h6>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
         <a className="link link-hover">Press kit</a>
       </nav>
-      <nav>
+      <nav className="dark:text-slate-300">
         <h6 className="footer-title">Legal</h6>
         <a className="link link-hover">Terms of use</a>
         <a className="link link-hover">Privacy policy</a>

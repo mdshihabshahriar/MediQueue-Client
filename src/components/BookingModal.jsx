@@ -78,7 +78,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="bg-white rounded-2xl w-full max-w-md p-6 relative">
+      <div className="bg-white rounded-2xl w-full max-w-md p-6 relative dark:bg-slate-900">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-sm"
@@ -135,7 +135,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-500"
+                className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-500 dark:bg-slate-900"
               />
             </div>
 
@@ -145,7 +145,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
                 type="text"
                 value={`${tutor.tutorName} (${tutor._id})`}
                 readOnly
-                className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-500"
+                className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-500 dark:bg-slate-900"
               />
             </div>
 

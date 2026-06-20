@@ -10,19 +10,19 @@ const TutorPage = async () => {
 
   return (
     <div>
-      <section className="bg-[#F8F6FF]">
+      <section className="bg-[#F8F6FF] dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-10 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-sm">
+            <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-sm dark:bg-slate-800">
               <GraduationCap className="text-primary" size={40} />
             </div>
 
             <div>
-              <h1 className="text-5xl font-bold text-slate-900">
+              <h1 className="text-5xl font-bold text-slate-900 dark:text-white">
                 Find Your Perfect Tutor
               </h1>
 
-              <p className="mt-3 text-slate-500">
+              <p className="mt-3 text-slate-500 dark:text-slate-300">
                 Browse verified tutors and book sessions that fit your schedule.
               </p>
             </div>

@@ -78,7 +78,7 @@ const MyBookingsPage = () => {
         <div className="overflow-x-auto border border-gray-200 rounded-xl">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50">
+              <tr className="bg-gray-50 dark:bg-slate-900">
                 <th className="px-4 py-3 text-left">
                   Tutor Name
                 </th>

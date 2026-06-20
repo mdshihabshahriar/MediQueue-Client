@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { data: session } = authClient.useSession();
@@ -51,7 +52,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/tutor"} className="font-semibold">
+                <Link href={"/tutors"} className="font-semibold">
                   Tutor
                 </Link>
               </li>
@@ -122,6 +123,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
+          <ThemeToggle></ThemeToggle>
           {user ? (
             <>
               {/* <Avatar>

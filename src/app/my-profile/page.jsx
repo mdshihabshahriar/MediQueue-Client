@@ -28,7 +28,7 @@ const ProfilePage = () => {
   if (!user) {
     return (
       <div style={shell}>
-        <div style={{ color: "#9A958A", fontSize: 14 }}>You're not signed in.</div>
+        <div style={{ color: "#9A958A", fontSize: 14 }}>You&apos;re not signed in.</div>
       </div>
     );
   }

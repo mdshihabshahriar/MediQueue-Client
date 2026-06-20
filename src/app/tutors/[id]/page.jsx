@@ -23,7 +23,7 @@ const TutorDetailsPage = async ({ params }) => {
 
       <div className="grid grid-cols-[220px_1fr] gap-5 items-start">
 
-        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white dark:bg-slate-900">
           <div className="relative w-full overflow-hidden bg-purple-200" style={{ aspectRatio: "2/3" }}>
             {tutor.photoUrl ? (
               <Image
@@ -46,14 +46,6 @@ const TutorDetailsPage = async ({ params }) => {
               style={{ background: "linear-gradient(to top, #26215Cdd, transparent)" }}
             />
 
-            {/* Rating */}
-            {/* <div className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full px-2.5 py-1 border border-amber-400/30"
-              style={{ background: "#FAC77533" }}>
-              <span className="text-amber-600 text-xs">★</span>
-              <span className="text-amber-900 text-xs font-medium">{tutor.rating ?? "4.9"}</span>
-            </div> */}
-
-            {/* Subject pills */}
             <div className="absolute bottom-2.5 left-2.5 right-2.5 flex flex-wrap gap-1">
               {tutor.subjects?.map((s) => (
                 <span key={s} className="text-[10px] text-purple-200 border border-purple-300/30 bg-purple-300/15 rounded-full px-2 py-0.5">
@@ -72,7 +64,7 @@ const TutorDetailsPage = async ({ params }) => {
         <div className="flex flex-col gap-3">
 
           <div className="border border-gray-200 rounded-xl overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+            <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200 dark:bg-slate-500">
               <span className="text-purple-600 text-sm">📅</span>
               <span className="text-[11px] font-medium text-gray-700 uppercase tracking-wide">Session details</span>
             </div>
@@ -91,7 +83,7 @@ const TutorDetailsPage = async ({ params }) => {
           </div>
 
           <div className="border border-gray-200 rounded-xl overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+            <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200 dark:bg-slate-500">
               <span className="text-purple-600 text-sm">👤</span>
               <span className="text-[11px] font-medium text-gray-700 uppercase tracking-wide">Tutor info</span>
             </div>
@@ -121,7 +113,7 @@ const TutorDetailsPage = async ({ params }) => {
             </p>
           </div> */}
 
-          <div className="rounded-xl border border-purple-200 bg-purple-50 px-4 py-3.5 flex flex-col gap-3">
+          <div className="rounded-xl border border-purple-200 bg-purple-50 dark:bg-slate-900 px-4 py-3.5 flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-[11px] text-purple-500 uppercase tracking-wide">Hourly fee</span>
               <p className="text-[26px] font-medium text-purple-900 leading-none">

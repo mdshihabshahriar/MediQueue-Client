@@ -55,15 +55,15 @@ const MyTutorsPage = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">My Tutors</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Tutors</h1>
 
       {tutors.length === 0 ? (
         <div className="flex flex-col items-center justify-center text-center py-20 border border-dashed border-gray-200 rounded-2xl">
           <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-4">
             <GraduationCap className="text-purple-400" size={28} />
           </div>
-          <h3 className="text-gray-900 font-medium mb-1">No tutors yet</h3>
-          <p className="text-sm text-gray-400 max-w-xs">
+          <h3 className="text-gray-900 dark:text-white font-medium mb-1">No tutors yet</h3>
+          <p className="text-sm text-gray-400 dark:text-slate-300 max-w-xs">
             You haven&apos;t added any tutor profiles. Once you do, they&apos;ll show up here.
           </p>
         </div>
@@ -71,7 +71,7 @@ const MyTutorsPage = () => {
         <div className="overflow-x-auto border border-gray-200 rounded-xl">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50 text-left text-xs text-gray-500 uppercase tracking-wide">
+              <tr className="bg-gray-50 dark:bg-slate-900 text-left text-xs text-gray-500 dark:text-white uppercase tracking-wide">
                 <th className="px-4 py-3 font-medium">Tutor Name</th>
                 <th className="px-4 py-3 font-medium">Subject</th>
                 <th className="px-4 py-3 font-medium">Available</th>
@@ -84,14 +84,14 @@ const MyTutorsPage = () => {
             <tbody>
               {tutors.map((tutor) => (
                 <tr key={tutor._id} className="border-t border-gray-100">
-                  <td className="px-4 py-3 font-medium text-gray-800">{tutor.tutorName}</td>
-                  <td className="px-4 py-3 text-gray-500">
+                  <td className="px-4 py-3 font-medium text-gray-800 dark:text-slate-300">{tutor.tutorName}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-slate-300">
                     {(tutor.subjects || []).join(", ")}
                   </td>
-                  <td className="px-4 py-3 text-gray-500">{tutor.availability}</td>
-                  <td className="px-4 py-3 text-gray-500">{tutor.totalSlot}</td>
-                  <td className="px-4 py-3 text-gray-500">৳{tutor.hourlyFee}</td>
-                  <td className="px-4 py-3 text-gray-500">{tutor.sessionDate}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-slate-300">{tutor.availability}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-slate-300">{tutor.totalSlot}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-slate-300">৳{tutor.hourlyFee}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-slate-300">{tutor.sessionDate}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
                       <button

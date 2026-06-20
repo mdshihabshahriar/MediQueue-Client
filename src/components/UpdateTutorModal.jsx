@@ -54,7 +54,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="bg-white rounded-2xl w-full max-w-md p-6 relative">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-md p-6 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-sm"
@@ -62,11 +62,11 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
           ✕
         </button>
 
-        <h2 className="text-lg font-medium text-gray-900 mb-5">Update tutor</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-5">Update tutor</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <div>
-            <label className="text-xs text-gray-500 mb-1 block">Tutor Name</label>
+            <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Tutor Name</label>
             <input
               type="text"
               value={form.tutorName}
@@ -77,7 +77,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
           </div>
 
           <div>
-            <label className="text-xs text-gray-500 mb-1 block">Subjects (comma separated)</label>
+            <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Subjects (comma separated)</label>
             <input
               type="text"
               value={form.subjects}
@@ -88,7 +88,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
           </div>
 
           <div>
-            <label className="text-xs text-gray-500 mb-1 block">Availability</label>
+            <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Availability</label>
             <input
               type="text"
               value={form.availability}
@@ -99,7 +99,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-500 mb-1 block">Total Slot</label>
+              <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Total Slot</label>
               <input
                 type="number"
                 min="0"
@@ -110,7 +110,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
               />
             </div>
             <div>
-              <label className="text-xs text-gray-500 mb-1 block">Hourly Fee</label>
+              <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Hourly Fee</label>
               <input
                 type="number"
                 min="0"
@@ -123,7 +123,7 @@ const UpdateTutorModal = ({ tutor, isOpen, onClose, onUpdated }) => {
           </div>
 
           <div>
-            <label className="text-xs text-gray-500 mb-1 block">Session Date</label>
+            <label className="text-xs text-gray-500 dark:text-slate-300 mb-1 block">Session Date</label>
             <input
               type="date"
               value={form.sessionDate}

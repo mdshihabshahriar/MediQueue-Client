@@ -66,7 +66,7 @@ const MainSection = async () => {
         ))}
       </div>
       <section className="container mx-auto mt-16">
-        <div className="bg-[#F8F6FF] rounded-3xl p-8 lg:p-10">
+        <div className="bg-[#F8F6FF] dark:bg-slate-900 rounded-3xl p-8 lg:p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => {
               const Icon = feature.icon;
@@ -81,18 +81,16 @@ const MainSection = async () => {
                   }`}
                 >
                   <div className="flex items-start gap-5">
-                    {/* Icon */}
                     <div className="w-20 h-20 rounded-full bg-[#F1ECFF] flex items-center justify-center shrink-0">
                       <Icon size={34} className="text-[#6D5DFC]" />
                     </div>
 
-                    {/* Content */}
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
                         {feature.title}
                       </h3>
 
-                      <p className="text-slate-600 leading-8 text-lg">
+                      <p className="text-slate-600 dark:text-slate-300 leading-8 text-lg">
                         {feature.description}
                       </p>
                     </div>
@@ -104,16 +102,16 @@ const MainSection = async () => {
         </div>
       </section>
       <section className="container mx-auto mt-16">
-        <div className="bg-[#F8F6FF] rounded-3xl p-8 lg:p-12 grid lg:grid-cols-3 gap-10 items-center">
+        <div className="bg-[#F8F6FF] dark:bg-slate-900 rounded-3xl p-8 lg:p-12 grid lg:grid-cols-3 gap-10 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-4xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-white leading-tight">
               Trusted By Learners
               <br />
               Across The Country
             </h2>
 
-            <p className="mt-6 text-slate-600 text-lg">
+            <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg">
               Thousands of students are already achieving their goals with
               MediQueue.
             </p>
@@ -124,39 +122,37 @@ const MainSection = async () => {
             </button>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-2 gap-8">
             <div className="text-center border-b border-dashed border-purple-200 pb-6">
               <div className="text-[#6D5DFC] text-3xl mb-2">👥</div>
               <h3 className="text-5xl font-bold">1500+</h3>
-              <p className="text-slate-600 mt-2">Active Students</p>
+              <p className="text-slate-600 mt-2 dark:text-slate-300">Active Students</p>
             </div>
 
             <div className="text-center border-b border-dashed border-purple-200 pb-6">
               <div className="text-[#6D5DFC] text-3xl mb-2">🎓</div>
               <h3 className="text-5xl font-bold">200+</h3>
-              <p className="text-slate-600 mt-2">Expert Tutors</p>
+              <p className="text-slate-600 mt-2 dark:text-slate-300">Expert Tutors</p>
             </div>
 
             <div className="text-center pt-4">
               <div className="text-[#6D5DFC] text-3xl mb-2">📚</div>
               <h3 className="text-5xl font-bold">3200+</h3>
-              <p className="text-slate-600 mt-2">Sessions Completed</p>
+              <p className="text-slate-600 mt-2 dark:text-slate-300">Sessions Completed</p>
             </div>
 
             <div className="text-center pt-4">
               <div className="text-[#6D5DFC] text-3xl mb-2">✅</div>
               <h3 className="text-5xl font-bold">98%</h3>
-              <p className="text-slate-600 mt-2">Satisfaction Rate</p>
+              <p className="text-slate-600 mt-2 dark:text-slate-300">Satisfaction Rate</p>
             </div>
           </div>
 
-          {/* Testimonial */}
           <div>
-            <div className="bg-white rounded-3xl p-8 shadow-sm">
+            <div className="light: bg-white rounded-3xl p-8 shadow-sm dark:bg-slate-800">
               <div className="text-[#6D5DFC] text-6xl leading-none">“</div>
 
-              <p className="text-slate-700 text-lg leading-relaxed mt-4">
+              <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mt-4">
                 MediQueue helped me find the perfect tutor for my engineering
                 math. The booking process is smooth and the sessions are
                 extremely helpful!
@@ -171,7 +167,7 @@ const MainSection = async () => {
 
                 <div>
                   <h4 className="font-semibold text-lg">Sadia Rahman</h4>
-                  <p className="text-slate-500">Student, BUET</p>
+                  <p className="text-slate-500 dark:text-slate-300">Student, BUET</p>
                 </div>
               </div>
             </div>
