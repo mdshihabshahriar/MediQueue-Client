@@ -7,6 +7,8 @@ import {
   UserRound,
   ShieldCheck,
   Clock3,
+  ArrowBigRight,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -45,16 +47,16 @@ const MainSection = async () => {
     <div className="container mx-auto mt-5">
       <div className="flex justify-between items-center">
         <div className="space-y-4">
-          <h4 className="text-purple-700 font-bold bg-purple-100 rounded-2xl px-1 w-40">
+          <h4 className="text-[#5B4CF2] font-bold bg-purple-100 rounded-2xl px-1 w-40">
             POPULAR TUTORS
           </h4>
           <h2 className="text-3xl font-bold">
-            Explore Our <span className="text-purple-700">Top Tutors</span>
+            Explore Our <span className="text-[#5B4CF2]">Top Tutors</span>
           </h2>
         </div>
         <div>
           <Link href={"/tutors"}>
-            <button className=" btn font-bold flex items-center gap-2 text-purple-700 hover:bg-purple-700 hover:text-white">
+            <button className="btn font-bold flex items-center gap-2 border border-[#6D5DFC] text-[#6D5DFC] hover:bg-[#5B4CF2] hover:text-white">
               View All Tutors <FaArrowRightLong />
             </button>
           </Link>
@@ -116,10 +118,10 @@ const MainSection = async () => {
               MediQueue.
             </p>
 
-            <button className="mt-8 bg-[#6D5DFC] hover:bg-[#5B4CF2] transition-all text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2">
+            <Link href={'/login'}><button className="mt-8 bg-[#6D5DFC] hover:bg-[#5B4CF2] transition-all text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2 cursor-pointer">
               Join MediQueue Today
-              <span>→</span>
-            </button>
+              <span><ArrowRight></ArrowRight></span>
+            </button></Link>
           </div>
 
           <div className="grid grid-cols-2 gap-8">
