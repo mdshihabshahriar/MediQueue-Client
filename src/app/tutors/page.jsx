@@ -111,9 +111,9 @@ const TutorPage = () => {
           </div>
 
           <div className="md:flex items-end gap-2">
-            <button className="btn bg-primary w-full text-white">Filter</button>
+            <button className="btn bg-primary w-full text-white" onClick={handleFilter}>Filter</button>
 
-            <button className="btn btn-outline w-full">Reset</button>
+            <button className="btn btn-secondary w-full" onClick={handleReset}>Reset</button>
           </div>
         </div>
       </section>
