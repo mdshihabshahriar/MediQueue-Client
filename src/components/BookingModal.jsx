@@ -115,7 +115,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
                 type="text"
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
-                className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-purple-400"
+                className="w-full text-white rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-purple-400"
                 placeholder="Your full name"
                 required
               />
@@ -127,7 +127,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-purple-400"
+                className="w-full text-white rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-purple-400"
                 placeholder="01XXXXXXXXX"
                 required
               />

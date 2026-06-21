@@ -4,7 +4,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="carousel w-full h-[80vh] overflow-hidden">
+    <div className="carousel w-full h-[40vh] md:h-[80vh] overflow-hidden">
       <div id="slide1" className="carousel-item relative w-full h-full">
         <div className="relative w-full h-full">
           <Image
@@ -18,7 +18,7 @@ const Banner = () => {
 
           <div className="absolute inset-0 flex items-center justify-center text-center text-white">
             <div className="max-w-3xl">
-              <h1 className="mb-5 text-7xl font-bold">
+              <h1 className="mb-5 text-4xl md:text-7xl font-bold">
                 <span className="text-[#5B4CF2]">Find The Perfect Tutor</span> For Your Success
               </h1>
               <p className="mb-6 text-lg text-gray-200">
@@ -53,8 +53,8 @@ const Banner = () => {
 
           <div className="absolute inset-0 flex items-center justify-center text-center text-white">
             <div className="max-w-3xl">
-              <h1 className="mb-5 text-7xl font-bold"><span className="text-[#5B4CF2]">Learn Smarter,</span> <br />Not Harder</h1>
-              <p className="mb-6 text-lg text-gray-200">Flexible schedules, personalized guidance, and expert support <br /> to help you excel in every subject.</p>
+              <h1 className="mb-5 text-4xl md:text-7xl font-bold"><span className="text-[#5B4CF2]">Learn Smarter,</span> <br />Not Harder</h1>
+              <p className="mb-6 text-lg text-gray-200">Flexible schedules, personalized guidance, and expert support to help you excel in every subject.</p>
               <Link href={'/tutors'}><button className="btn bg-[#6D5DFC] border-none text-white hover:bg-[#5B4CF2]">Book A Session</button></Link>
             </div>
           </div>
@@ -83,8 +83,8 @@ const Banner = () => {
 
           <div className="absolute inset-0 flex items-center justify-center text-center text-white">
             <div className="max-w-3xl">
-              <h1 className="mb-5 text-7xl font-bold"><span className="text-[#5B4CF2]">Your Learning Journey</span> Starts Here</h1>
-              <p className="mb-6 text-lg text-gray-200">Discover top-rated tutors, manage sessions effortlessly <br /> and learn at your own pace with MediQueue.</p>
+              <h1 className="mb-5 text-4xl md:text-7xl font-bold"><span className="text-[#5B4CF2]">Your Learning Journey</span> Starts Here</h1>
+              <p className="mb-6 text-lg text-gray-200">Discover top-rated tutors, manage sessions effortlessly and learn at your own pace with MediQueue.</p>
               <Link href={'/login'}><button className="btn bg-[#6D5DFC] border-none text-white hover:bg-[#5B4CF2]">Get Started</button></Link>
             </div>
           </div>

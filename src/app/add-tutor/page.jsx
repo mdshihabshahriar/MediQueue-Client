@@ -52,7 +52,7 @@ const AddTutorPage = () => {
     tutor.teachingMode = teachingMode.map((m) => m.value);
     tutor.hourlyFee = Number(tutor.hourlyFee);
     tutor.totalSlot = Number(tutor.totalSlot);
-    tutor.sessionDate = new Date(tutor.sessionDate).toISOString();
+    tutor.sessionDate = new Date(tutor.sessionDate).toISOString().split("T")[0];
     // console.log(tutor);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`, {

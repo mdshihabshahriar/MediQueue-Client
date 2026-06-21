@@ -28,11 +28,7 @@ const TutorDetailsPage = async ({ params }) => {
   return (
      <div className="max-w-3xl mx-auto px-4 py-6 pb-12">
 
-      <Link href="/tutors" className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 mb-6">
-        ← Back to tutors
-      </Link>
-
-      <div className="grid grid-cols-[220px_1fr] gap-5 items-start">
+      <div className="grid md:grid-cols-[220px_1fr] gap-5 items-start">
 
         <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white dark:bg-slate-900">
           <div className="relative w-full overflow-hidden bg-purple-200" style={{ aspectRatio: "2/3" }}>

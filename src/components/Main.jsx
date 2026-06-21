@@ -49,7 +49,7 @@ const MainSection = async () => {
           <h4 className="text-[#5B4CF2] bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300 rounded-2xl px-1 w-40 font-bold">
             POPULAR TUTORS
           </h4>
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-xl md:text-3xl font-bold">
             Explore Our <span className="text-[#5B4CF2]">Top Tutors</span>
           </h2>
         </div>
@@ -61,7 +61,7 @@ const MainSection = async () => {
           </Link>
         </div>
       </div>
-      <div className="grid md:grid-cols-4 gap-4 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10 justify-items-center">
         {tutors.map((tutor) => (
           <TutorCard key={tutor._id} tutor={tutor}></TutorCard>
         ))}
@@ -150,7 +150,7 @@ const MainSection = async () => {
           </div>
 
           <div>
-            <div className="light: bg-white rounded-3xl p-8 shadow-sm dark:bg-slate-800">
+            <div className="bg-white rounded-3xl p-8 shadow-sm dark:bg-slate-800">
               <div className="text-[#6D5DFC] text-6xl leading-none">“</div>
 
               <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mt-4">

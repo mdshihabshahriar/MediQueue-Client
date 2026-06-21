@@ -119,7 +119,7 @@ const TutorPage = () => {
       </section>
 
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-4 gap-4 justify-items-center">
           {tutors.map((t) => (
             <TutorCard key={t._id} tutor={t}></TutorCard>
           ))}
