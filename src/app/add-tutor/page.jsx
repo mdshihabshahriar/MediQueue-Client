@@ -36,31 +36,7 @@ const modeOptions = [
   { value: "both", label: "Both" },
 ];
 
-// Shared styling for react-select to match the rest of the form
-const selectStyles = {
-  control: (base, state) => ({
-    ...base,
-    minHeight: "44px",
-    borderRadius: "0.75rem",
-    borderColor: state.isFocused ? "#7e22ce" : "#e5e7eb",
-    boxShadow: state.isFocused ? "0 0 0 3px rgba(126,34,206,0.15)" : "none",
-    "&:hover": { borderColor: "#a855f7" },
-  }),
-  multiValue: (base) => ({
-    ...base,
-    backgroundColor: "#f3e8ff",
-    borderRadius: "0.5rem",
-  }),
-  multiValueLabel: (base) => ({
-    ...base,
-    color: "#6b21a8",
-    fontWeight: 600,
-  }),
-  placeholder: (base) => ({
-    ...base,
-    color: "#9ca3af",
-  }),
-};
+
 
 const AddTutorPage = () => {
   const [subjects, setSubjects] = useState([]);
@@ -95,14 +71,14 @@ const AddTutorPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 py-14 px-4">
+    <div className="min-h-screen bg-[#F8F6FF] dark:bg-slate-900 py-14 px-4">
       <div className="container mx-auto">
         <div className="text-center max-w-xl mx-auto space-y-3 mb-10">
-          <span className="inline-block text-xs font-bold tracking-widest uppercase text-purple-600 bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full">
+          <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#5B4CF2] bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full">
             Tutor Onboarding
           </span>
           <h2 className="font-extrabold text-3xl md:text-4xl text-slate-800 dark:text-white leading-tight">
-            Add Your <span className="text-purple-600">Tutor Profile</span>
+            Add Your <span className="text-[#5B4CF2]">Tutor Profile</span>
           </h2>
           <p className="text-gray-500 dark:text-gray-400 font-medium text-sm md:text-base">
             Share your expertise with students across the country. Fill in
@@ -111,7 +87,7 @@ const AddTutorPage = () => {
           </p>
         </div>
 
-        <Card className="border border-gray-100 dark:border-slate-700 max-w-2xl mx-auto shadow-xl shadow-purple-100/50 dark:shadow-none rounded-3xl p-6 md:p-10 bg-white dark:bg-slate-900">
+        <Card className="border border-gray-100 dark:border-slate-700 max-w-2xl mx-auto shadow-xl shadow-purple-100/50 dark:shadow-none rounded-3xl p-6 md:p-10  dark:text-black">
           <Form onSubmit={onSubmit} className="w-full max-w-2xl mx-auto">
             <Fieldset>
               <FieldGroup className="space-y-5">
@@ -131,7 +107,7 @@ const AddTutorPage = () => {
                   </Label>
                   <Input
                     placeholder="John Doe"
-                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700"
+                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700 w-full"
                   />
                   <FieldError className="text-xs text-red-500" />
                 </TextField>
@@ -147,7 +123,7 @@ const AddTutorPage = () => {
                   </Label>
                   <Input
                     placeholder="Paste image link (e.g. ibb.co/xxxx)"
-                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700"
+                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700 w-full"
                   />
                   <FieldError className="text-xs text-red-500" />
                 </TextField>
@@ -163,7 +139,7 @@ const AddTutorPage = () => {
                     value={subjects}
                     onChange={(selected) => setSubjects(selected || [])}
                     placeholder="Select Subject"
-                    styles={selectStyles}
+                    className="dark:bg-slate-900"
                   />
                 </div>
 
@@ -178,7 +154,7 @@ const AddTutorPage = () => {
                   </Label>
                   <Input
                     placeholder="Sun - Thu, 5.00 PM - 8.00 PM"
-                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700"
+                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700 w-full"
                   />
                   <FieldError className="text-xs text-red-500" />
                 </TextField>
@@ -371,7 +347,7 @@ const AddTutorPage = () => {
                   </Label>
                   <Input
                     placeholder="Dhaka"
-                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700"
+                    className="rounded-xl border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 dark:bg-slate-800 dark:border-slate-700 w-full"
                   />
                   <FieldError className="text-xs text-red-500" />
                 </TextField>
@@ -387,14 +363,13 @@ const AddTutorPage = () => {
                     value={teachingMode}
                     onChange={(selected) => setTeachingMode(selected || [])}
                     placeholder="Select Mode"
-                    styles={selectStyles}
                   />
                 </div>
               </FieldGroup>
 
               <Fieldset.Actions className="mt-2">
                 <Button
-                  className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 text-white font-bold w-full rounded-xl py-3 shadow-lg shadow-purple-300/40 transition-all"
+                  className="bg-linear-to-r from-[#6D5DFC] to-fuchsia-600 hover:from-[#5B4CF2] hover:to-fuchsia-700 text-white font-bold w-full rounded-xl py-3 shadow-lg shadow-purple-300/40 transition-all"
                   type="submit"
                 >
                   Submit Profile
