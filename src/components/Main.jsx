@@ -46,7 +46,7 @@ const MainSection = async () => {
     <div className="container mx-auto mt-5">
       <div className="flex justify-between items-center">
         <div className="space-y-4">
-          <h4 className="text-[#5B4CF2] font-bold bg-purple-100 rounded-2xl px-1 w-40">
+          <h4 className="text-[#5B4CF2] bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300 rounded-2xl px-1 w-40 font-bold">
             POPULAR TUTORS
           </h4>
           <h2 className="text-3xl font-bold">
