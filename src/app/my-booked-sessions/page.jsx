@@ -75,7 +75,7 @@ const MyBookingsPage = () => {
           </p>
         </div>
       ) : (
-        <div className="overflow-x-auto border border-gray-200 rounded-xl">
+        <div className="overflow-x-auto border border-gray-200 dark:border-slate-600 rounded-xl">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-gray-50 dark:bg-slate-900">
@@ -105,7 +105,7 @@ const MyBookingsPage = () => {
               {bookings.map((booking) => (
                 <tr
                   key={booking._id}
-                  className="border-t border-gray-100"
+                  className="border-t border-gray-100 dark:border-slate-600"
                 >
                   <td className="px-4 py-3">
                     {booking.tutorName}

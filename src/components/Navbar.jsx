@@ -13,15 +13,15 @@ const Navbar = () => {
   const user = session?.user;
   // console.log(user);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSignOut = async () => {
     await authClient.signOut();
-    router.push('/');
+    router.push("/");
   };
 
   return (
-    <div className="bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
+    <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -44,7 +44,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link href={"/"} className="font-semibold">
@@ -74,7 +74,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Image
-            src="/assets/logo.PNG"
+            src="/assets/logo.png"
             alt="logo image"
             width={150}
             height={10}
@@ -96,38 +96,36 @@ const Navbar = () => {
                 Tutors
               </Link>
             </li>
-            {
-              user ? (
-                <>
-                  <li>
-              <Link
-                href={"/add-tutor"}
-                className="font-semibold hover:bg-transparent"
-              >
-                Add Tutor
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/my-tutors"}
-                className="font-semibold hover:bg-transparent"
-              >
-                My Tutors
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/my-booked-sessions"}
-                className="font-semibold hover:bg-transparent"
-              >
-                My Booked Sessions
-              </Link>
-            </li>
-                </>
-              ):(
-                <></>
-              )
-            }
+            {user ? (
+              <>
+                <li>
+                  <Link
+                    href={"/add-tutor"}
+                    className="font-semibold hover:bg-transparent"
+                  >
+                    Add Tutor
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/my-tutors"}
+                    className="font-semibold hover:bg-transparent"
+                  >
+                    My Tutors
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/my-booked-sessions"}
+                    className="font-semibold hover:bg-transparent"
+                  >
+                    My Booked Sessions
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
         </div>
         <div className="navbar-end gap-2">
@@ -142,34 +140,44 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar ring-2 ring-primary ring-offset-2 ring-offset-base-100"
                 >
                   <div className="w-10 rounded-full">
                     <Image
                       alt={user.name}
-                      src={user?.image} 
-                      width={10} height={10}
+                      src={user?.image}
+                      width={10}
+                      height={10}
                     />
                   </div>
                 </div>
                 <ul
-                  tabIndex="-1"
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-1 w-64 rounded-2xl border border-base-300 bg-base-100 p-2 shadow-xl"
                 >
+                  <div className="px-3 py-3 border-b border-base-300">
+                    <h3 className="font-bold text-base">{user?.name}</h3>
+                    <p className="text-xs text-base-content/60 truncate">
+                      {user?.email}
+                    </p>
+                  </div>
+
+                  <li className="mt-2">
+                    <Link href="/my-profile"> My Profile</Link>
+                  </li>
+
+                  <div className="divider my-1"></div>
+
                   <li>
-                    <Link href={'/my-profile'} className="justify-center font-bold">
-                      My Profile
-                    </Link>
+                    <button
+                      onClick={handleSignOut}
+                      className="text-red-500 hover:bg-red-50 dark:hover:bg-red-950"
+                    >
+                      Logout
+                    </button>
                   </li>
                 </ul>
               </div>
-              <Button
-                onClick={handleSignOut}
-                variant="danger"
-                className="rounded-sm"
-              >
-                Logout
-              </Button>
             </>
           ) : (
             <>

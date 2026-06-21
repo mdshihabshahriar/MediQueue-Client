@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-[#F8F6FF] dark:bg-slate-900 mt-20">
     <footer className="footer sm:footer-horizontal text-base-content py-10 container mx-auto">
       <aside>
-        <Image src='/assets/logo.PNG' width={200} height={100} alt="logo image"></Image>
+        <Image src='/assets/logo.png' width={200} height={100} alt="logo image"></Image>
         <p className="dark:text-slate-300">
           MediQueue is your trusted platform
           <br />

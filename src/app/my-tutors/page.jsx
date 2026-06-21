@@ -68,7 +68,7 @@ const MyTutorsPage = () => {
           </p>
         </div>
       ) : (
-        <div className="overflow-x-auto border border-gray-200 rounded-xl">
+        <div className="overflow-x-auto border border-gray-200 dark:border-slate-600 rounded-xl">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-gray-50 dark:bg-slate-900 text-left text-xs text-gray-500 dark:text-white uppercase tracking-wide">
@@ -83,7 +83,7 @@ const MyTutorsPage = () => {
             </thead>
             <tbody>
               {tutors.map((tutor) => (
-                <tr key={tutor._id} className="border-t border-gray-100">
+                <tr key={tutor._id} className="border-t border-gray-100 dark:border-slate-600">
                   <td className="px-4 py-3 font-medium text-gray-800 dark:text-slate-300">{tutor.tutorName}</td>
                   <td className="px-4 py-3 text-gray-500 dark:text-slate-300">
                     {(tutor.subjects || []).join(", ")}

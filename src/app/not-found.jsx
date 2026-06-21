@@ -20,8 +20,8 @@ export default function NotFound() {
         </h2>
 
         <p className="mt-4 text-base-content/70 text-lg leading-relaxed">
-          Oops! The page you're looking for doesn't exist or may have been
-          moved. Let's get you back on track.
+          Oops! The page you&apos;re looking for doesn&apos;t exist or may have been
+          moved. Let&apos;s get you back on track.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">

@@ -62,7 +62,7 @@ const TutorPage = () => {
           </div>
 
           <Image
-            src="/assets/book.png"
+            src="/assets/book1.png"
             alt="book image"
             width={72}
             height={72}
