@@ -10,7 +10,7 @@ const TutorCard = ({ tutor }) => {
 
   return (
     <div
-      className="w-full max-w-[300px] rounded-[14px] border border-[#E5E3F8] overflow-hidden bg-white dark:bg-neutral-900"
+      className="w-full max-w-75 rounded-[14px] border border-[#E5E3F8] overflow-hidden bg-white dark:bg-neutral-900"
     >
       <div className="bg-[#EEEDFE] dark:bg-[#26215C] px-5 py-5 flex items-center gap-4">
         <div className="w-16 h-16 rounded-full border-2 border-[#AFA9EC] overflow-hidden shrink-0 bg-[#534AB7] flex items-center justify-center text-[#EEEDFE] text-xl font-medium">
