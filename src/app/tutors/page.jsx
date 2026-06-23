@@ -60,7 +60,7 @@ console.log(tutors)
             </div>
 
             <div>
-              <h1 className="text-5xl font-bold text-slate-900 dark:text-white">
+              <h1 className="md:text-5xl font-bold text-slate-900 dark:text-white">
                 Find Your Perfect Tutor
               </h1>
 
@@ -75,7 +75,7 @@ console.log(tutors)
             alt="book image"
             width={72}
             height={72}
-            className="hidden lg:block w-72"
+            className="md:w-72"
           />
         </div>
       </motion.section>
