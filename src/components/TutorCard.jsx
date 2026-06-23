@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const TutorCard = ({ tutor }) => {
+const TutorCard = ({ tutor, index = 0 }) => {
   const initials = tutor.tutorName
     .split(" ")
     .map((n) => n[0])
@@ -9,7 +12,11 @@ const TutorCard = ({ tutor }) => {
     .toUpperCase();
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+      whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(83,74,183,0.15)" }}
       className="w-full max-w-75 rounded-[14px] border border-[#E5E3F8] overflow-hidden bg-white dark:bg-neutral-900"
     >
       <div className="bg-[#EEEDFE] dark:bg-[#26215C] px-5 py-5 flex items-center gap-4">
@@ -58,11 +65,17 @@ const TutorCard = ({ tutor }) => {
           </div>
         </div>
 
-        <Link href={`/tutors/${tutor._id}`}><button className="btn w-full bg-[#534AB7] hover:bg-[#3C3489] text-[#EEEDFE] py-3 rounded-xl text-sm font-medium">
-          Book session
-        </button></Link>
+        <Link href={`/tutors/${tutor._id}`}>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            className="btn w-full bg-[#534AB7] hover:bg-[#3C3489] text-[#EEEDFE] py-3 rounded-xl text-sm font-medium"
+          >
+            Book session
+          </motion.button>
+        </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

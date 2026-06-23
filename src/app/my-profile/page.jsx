@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Mail, ShieldCheck, ShieldAlert, CalendarDays } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 function formatDate(iso) {
   if (!iso) return "—";
@@ -19,17 +20,27 @@ const ProfilePage = () => {
 
   if (isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="min-h-screen flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900"
+      >
         <p className="text-gray-500 dark:text-gray-300">Loading profile...</p>
-      </div>
+      </motion.div>
     );
   }
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="min-h-screen flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900"
+      >
         <p className="text-gray-500 dark:text-gray-300">You&apos;re not signed in.</p>
-      </div>
+      </motion.div>
     );
   }
 
@@ -42,10 +53,20 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-[90vh] flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900 px-4">
-      
-      <div className="w-full max-w-sm rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl p-6">
 
-        <div className="flex justify-center -mt-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="w-full max-w-sm rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl p-6"
+      >
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+          className="flex justify-center -mt-16"
+        >
           <div className="w-24 h-24 rounded-full p-1 bg-linear-to-tr from-purple-500 to-indigo-500">
             {user.image ? (
               <Image
@@ -61,10 +82,14 @@ const ProfilePage = () => {
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Name */}
-        <div className="text-center mt-4">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.25 }}
+          className="text-center mt-4"
+        >
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             {user.name}
           </h2>
@@ -73,12 +98,21 @@ const ProfilePage = () => {
             <Mail size={14} />
             {user.email}
           </div>
-        </div>
+        </motion.div>
 
-        <hr className="my-5 border-gray-200 dark:border-slate-700" />
+        <motion.hr
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.35 }}
+          className="my-5 border-gray-200 dark:border-slate-700"
+        />
 
-        {/* Info */}
-        <div className="space-y-4 text-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.4 }}
+          className="space-y-4 text-sm"
+        >
 
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
@@ -112,8 +146,8 @@ const ProfilePage = () => {
             </span>
           </div>
 
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
     </div>
   );

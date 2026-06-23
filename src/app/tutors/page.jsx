@@ -3,6 +3,7 @@ import TutorCard from "@/components/TutorCard";
 import { GraduationCap } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const TutorPage = () => {
   const [tutors, setTutors] = useState([]);
@@ -46,7 +47,12 @@ console.log(tutors)
 
   return (
     <div>
-      <section className="bg-[#F8F6FF] dark:bg-slate-900">
+      <motion.section
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="bg-[#F8F6FF] dark:bg-slate-900"
+      >
         <div className="max-w-7xl mx-auto px-6 py-10 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shadow-sm dark:bg-slate-800">
@@ -72,9 +78,14 @@ console.log(tutors)
             className="hidden lg:block w-72"
           />
         </div>
-      </section>
+      </motion.section>
 
-      <section className="max-w-7xl mx-auto px-6 py-8">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        className="max-w-7xl mx-auto px-6 py-8"
+      >
         <div className="grid lg:grid-cols-5 gap-4">
           <div>
             <label className="text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -114,20 +125,39 @@ console.log(tutors)
           </div>
 
           <div className="md:flex items-end gap-2">
-            <button className="btn bg-primary w-full text-white" onClick={handleFilter}>Filter</button>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="btn bg-primary w-full text-white"
+              onClick={handleFilter}
+            >
+              Filter
+            </motion.button>
 
-            <button className="btn btn-secondary w-full" onClick={handleReset}>Reset</button>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="btn btn-secondary w-full"
+              onClick={handleReset}
+            >
+              Reset
+            </motion.button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <div className="container mx-auto">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        className="container mx-auto"
+      >
         <div className="grid md:grid-cols-4 gap-4 justify-items-center">
-          {tutors.map((t) => (
-            <TutorCard key={t._id} tutor={t}></TutorCard>
+          {tutors.map((t, index) => (
+            <TutorCard key={t._id} tutor={t} index={index} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
