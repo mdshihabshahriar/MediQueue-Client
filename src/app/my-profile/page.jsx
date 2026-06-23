@@ -26,7 +26,6 @@ const ProfilePage = () => {
         transition={{ duration: 0.3 }}
         className="min-h-screen flex items-center justify-center bg-[#F8F6FF] dark:bg-slate-900"
       >
-        <p className="text-gray-500 dark:text-gray-300">Loading profile...</p>
       </motion.div>
     );
   }

@@ -3,9 +3,10 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { data: session } = authClient.useSession();
@@ -15,9 +16,12 @@ const Navbar = () => {
 
   const router = useRouter();
 
+  const pathName = usePathname();
+
   const handleSignOut = async () => {
     await authClient.signOut();
     router.push("/");
+    toast.success("Logout Successful");
   };
 
   return (
@@ -44,10 +48,21 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-white dark:bg-slate-900"
             >
+              <div className="mb-3 flex items-center justify-between">
+                <span className="font-semibold">Menu</span>
+                <ThemeToggle />
+              </div>
               <li>
-                <Link href={"/"} className="font-semibold">
+                <Link
+                  href={"/"}
+                  className={`font-semibold ${
+                    pathName === "/"
+                      ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                      : "hover:text-[#6b57ff]"
+                  }`}
+                >
                   Home
                 </Link>
               </li>
@@ -56,44 +71,82 @@ const Navbar = () => {
                   Tutor
                 </Link>
               </li>
-              <li>
-                <Link href={"/add-tutor"} className="font-semibold">
-                  Add Tutor
+              <div className="divider my-2"></div>
+              <div className="flex flex-col gap-2 px-2 mt-1">
+                <Link href={"/login"} className="w-full">
+                  <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
+                    Login
+                  </button>
                 </Link>
-              </li>
-              <li>
-                <Link href={"/my-tutors"} className="font-semibold">
-                  My Tutors
+                <Link href={"/signup"} className="w-full">
+                  <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
+                    Register
+                  </button>
                 </Link>
-              </li>
-              <li>
-                <Link href={"/my-booked-sessions"} className="font-semibold">
-                  My Booked Sessions
-                </Link>
-              </li>
+              </div>
+              {user ? (
+                <>
+                  <li>
+                    <Link
+                      href={"/add-tutor"}
+                      className="font-semibold hover:bg-transparent"
+                    >
+                      Add Tutor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={"/my-tutors"}
+                      className="font-semibold hover:bg-transparent"
+                    >
+                      My Tutors
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={"/my-booked-sessions"}
+                      className="font-semibold hover:bg-transparent"
+                    >
+                      My Booked Sessions
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
             </ul>
           </div>
-          <Link href={'/'}>
+          <Link href={"/"}>
             <Image
               src="/assets/logo.png"
               alt="logo image"
               width={150}
               height={10}
-              className=""
             ></Image>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href={"/"} className="font-semibold hover:bg-transparent">
+              <Link
+                href={"/"}
+                className={`font-semibold hover:bg-transparent ${
+                  pathName === "/"
+                    ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                    : "hover:text-[#6b57ff]"
+                }`}
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href={"/tutors"}
-                className="font-semibold hover:bg-transparent"
+                className={`font-semibold bg-transparent ${
+                  pathName === "/tutors"
+                    ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                    : "hover:text-[#6b57ff]"
+                }`}
               >
                 Tutors
               </Link>
@@ -103,7 +156,11 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/add-tutor"}
-                    className="font-semibold hover:bg-transparent"
+                    className={`font-semibold hover:bg-transparent ${
+                      pathName === "/add-tutor"
+                        ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                        : "hover:text-[#6b57ff]"
+                    }`}
                   >
                     Add Tutor
                   </Link>
@@ -111,7 +168,11 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/my-tutors"}
-                    className="font-semibold hover:bg-transparent"
+                    className={`font-semibold hover:bg-transparent ${
+                      pathName === "/my-tutors"
+                        ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                        : "hover:text-[#6b57ff]"
+                    }`}
                   >
                     My Tutors
                   </Link>
@@ -119,7 +180,11 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/my-booked-sessions"}
-                    className="font-semibold hover:bg-transparent"
+                    className={`font-semibold hover:bg-transparent ${
+                      pathName === "/my-booked-sessions"
+                        ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                        : "hover:text-[#6b57ff]"
+                    }`}
                   >
                     My Booked Sessions
                   </Link>
@@ -130,7 +195,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end gap-2 hidden lg:flex">
           <ThemeToggle></ThemeToggle>
           {user ? (
             <>
@@ -145,12 +210,16 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar ring-2 ring-primary ring-offset-2 ring-offset-base-100"
                 >
                   <div className="w-10 rounded-full">
-                    <Image
-                      alt={user.name}
-                      src={user?.image}
-                      width={10}
-                      height={10}
-                    />
+                    {user?.image ? (
+                      <Image
+                        alt={user.name}
+                        src={user?.image}
+                        width={10}
+                        height={10}
+                      />
+                    ) : (
+                      <span>{user?.name?.charAt(0).toUpperCase()}</span>
+                    )}
                   </div>
                 </div>
                 <ul
@@ -184,12 +253,12 @@ const Navbar = () => {
           ) : (
             <>
               <Link href={"/login"}>
-                <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">
+                <button className="btn border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
                   Login
                 </button>
               </Link>
               <Link href={"/signup"}>
-                <button className="btn bg-[#6b57ff] text-white hover:bg-[#5d49f9]">
+                <button className="btn border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
                   Register
                 </button>
               </Link>

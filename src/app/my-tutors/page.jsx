@@ -59,7 +59,7 @@ const MyTutorsPage = () => {
         transition={{ duration: 0.3 }}
         className="max-w-4xl mx-auto px-4 py-16 text-center text-gray-400"
       >
-        Loading...
+        <span className="loading loading-dots loading-xl"></span>
       </motion.div>
     );
   }
