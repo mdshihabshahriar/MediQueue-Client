@@ -60,7 +60,7 @@ const MyBookingsPage = () => {
         transition={{ duration: 0.3 }}
         className="text-center py-16"
       >
-        Loading...
+        <span className="loading loading-dots loading-xl"></span>
       </motion.div>
     );
   }
