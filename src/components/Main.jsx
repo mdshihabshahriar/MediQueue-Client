@@ -31,7 +31,7 @@ const MainSection = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10 justify-items-center">
-        {tutors.map((tutor) => (
+        {tutors.slice(0,4).map((tutor) => (
           <TutorCard key={tutor._id} tutor={tutor} />
         ))}
       </div>
