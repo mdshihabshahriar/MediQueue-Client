@@ -50,6 +50,19 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-white dark:bg-slate-900"
             >
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#6b57ff] text-white font-bold overflow-hidden">
+                {user?.image ? (
+                  <Image
+                    alt={user.name}
+                    src={user.image}
+                    width={40}
+                    height={40}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <span>{user?.name?.charAt(0).toUpperCase()}</span>
+                )}
+              </div>
               <div className="mb-3 flex items-center justify-between">
                 <span className="font-semibold">Menu</span>
                 <ThemeToggle />
@@ -57,7 +70,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href={"/"}
-                  className={`font-semibold ${
+                  className={`font-semibold bg-transparent ${
                     pathName === "/"
                       ? "text-[#6b57ff] dark:text-[#8b7bff]"
                       : "hover:text-[#6b57ff]"
@@ -67,29 +80,27 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/tutors"} className="font-semibold">
+                <Link
+                  href={"/tutors"}
+                  className={`font-semibold bg-transparent ${
+                    pathName === "/tutors"
+                      ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                      : "hover:text-[#6b57ff]"
+                  }`}
+                >
                   Tutor
                 </Link>
               </li>
-              <div className="divider my-2"></div>
-              <div className="flex flex-col gap-2 px-2 mt-1">
-                <Link href={"/login"} className="w-full">
-                  <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
-                    Login
-                  </button>
-                </Link>
-                <Link href={"/signup"} className="w-full">
-                  <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
-                    Register
-                  </button>
-                </Link>
-              </div>
               {user ? (
                 <>
                   <li>
                     <Link
                       href={"/add-tutor"}
-                      className="font-semibold hover:bg-transparent"
+                      className={`font-semibold bg-transparent ${
+                        pathName === "/add-tutor"
+                          ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                          : "hover:text-[#6b57ff]"
+                      }`}
                     >
                       Add Tutor
                     </Link>
@@ -97,7 +108,11 @@ const Navbar = () => {
                   <li>
                     <Link
                       href={"/my-tutors"}
-                      className="font-semibold hover:bg-transparent"
+                      className={`font-semibold bg-transparent ${
+                        pathName === "/my-tutors"
+                          ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                          : "hover:text-[#6b57ff]"
+                      }`}
                     >
                       My Tutors
                     </Link>
@@ -105,14 +120,49 @@ const Navbar = () => {
                   <li>
                     <Link
                       href={"/my-booked-sessions"}
-                      className="font-semibold hover:bg-transparent"
+                      className={`font-semibold bg-transparent ${
+                        pathName === "/my-booked-sessions"
+                          ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                          : "hover:text-[#6b57ff]"
+                      }`}
                     >
                       My Booked Sessions
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href={"/my-profile"}
+                      className={`font-semibold bg-transparent ${
+                        pathName === "/my-profile"
+                          ? "text-[#6b57ff] dark:text-[#8b7bff]"
+                          : "hover:text-[#6b57ff]"
+                      }`}
+                    >
+                      My Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <button onClick={handleSignOut} className="btn btn-error">
+                      Logout
+                    </button>
+                  </li>
                 </>
               ) : (
-                <></>
+                <>
+                  <div className="divider my-2"></div>
+                  <div className="flex flex-col gap-2 px-2 mt-1">
+                    <Link href={"/login"} className="w-full">
+                      <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
+                        Login
+                      </button>
+                    </Link>
+                    <Link href={"/signup"} className="w-full">
+                      <button className="btn w-full border-[#6b57ff] text-[#6b57ff] hover:text-white hover:bg-[#5d49f9]">
+                        Register
+                      </button>
+                    </Link>
+                  </div>
+                </>
               )}
             </ul>
           </div>
