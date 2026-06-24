@@ -15,7 +15,7 @@ import {
   Calendar,
   NumberField,
 } from "@heroui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Select from "react-select";
 import { motion } from "framer-motion";
@@ -42,6 +42,10 @@ const AddTutorPage = () => {
   const [teachingMode, setTeachingMode] = useState([]);
   const { data: session } = authClient.useSession();
   const user = session?.user;
+
+  useEffect(() => {
+  document.title = "Add Tutor | MediQueue";
+}, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();

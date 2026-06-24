@@ -11,6 +11,10 @@ const MyTutorsPage = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
 
+  useEffect(() => {
+    document.title = "My Tutors | MediQueue";
+  }, []);
+
   const [tutors, setTutors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingTutor, setEditingTutor] = useState(null);

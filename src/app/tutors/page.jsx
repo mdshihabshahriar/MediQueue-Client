@@ -15,7 +15,7 @@ const TutorPage = () => {
   const fetchTutors = async (s = search, sd = startDate, ed = endDate) => {
     const params = new URLSearchParams();
 
-    console.log(params)
+    // console.log(params)
 
     if (s) params.append("search", s);
     if (sd) params.append("startDate", sd);
@@ -26,11 +26,15 @@ const TutorPage = () => {
     );
     const data = await res.json();
     setTutors(data);
-    console.log(data)
+    // console.log(data)
   };
-console.log(tutors)
+  // console.log(tutors)
   useEffect(() => {
     fetchTutors();
+  }, []);
+
+  useEffect(() => {
+    document.title = "Tutors | MediQueue";
   }, []);
 
   const handleFilter = () => {

@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Mail, ShieldCheck, ShieldAlert, CalendarDays } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 function formatDate(iso) {
   if (!iso) return "—";
@@ -17,6 +18,10 @@ function formatDate(iso) {
 const ProfilePage = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+
+  useEffect(() => {
+    document.title = "My Profile | MediQueue";
+  }, []);
 
   if (isPending) {
     return (

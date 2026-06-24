@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CalendarDays, UserRound, ShieldCheck, Clock3 } from "lucide-react";
+import { useEffect } from "react";
 
 const features = [
   {
@@ -31,6 +32,9 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  useEffect(() => {
+      document.title = "Home | MediQueue";
+    }, []);
   return (
     <section className="container mx-auto mt-16">
       <div className="bg-[#F8F6FF] dark:bg-slate-900 rounded-3xl p-8 lg:p-10">

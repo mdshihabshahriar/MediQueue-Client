@@ -15,6 +15,10 @@ const MyBookingsPage = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
 
   useEffect(() => {
+    document.title = "My Booked Sessions | MediQueue";
+  }, []);
+
+  useEffect(() => {
     if (!user?.id) return;
 
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings?userId=${user.id}`)

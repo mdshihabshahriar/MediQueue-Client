@@ -2,7 +2,6 @@ import BookSessionButton from "@/components/BookSessionButton";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
-import Link from "next/link";
 
 const TutorDetailsPage = async ({ params }) => {
   const { id } = await params;

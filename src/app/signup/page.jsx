@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { redirect } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiEye, FiEyeOff, FiUser, FiMail, FiImage, FiLock, FiZap } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 
@@ -42,6 +42,10 @@ const handleGoogleSignin = async () => {
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+  document.title = "Register | MediQueue";
+}, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-violet-50 via-purple-50 to-indigo-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800 p-4">

@@ -11,7 +11,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff, FiLock, FiMail, FiZap } from "react-icons/fi";
@@ -19,6 +19,10 @@ import { FiEye, FiEyeOff, FiLock, FiMail, FiZap } from "react-icons/fi";
 const LoginPage = () => {
 
   const router = useRouter()
+
+  useEffect(() => {
+    document.title = "Login | MediQueue";
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
