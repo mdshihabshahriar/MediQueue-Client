@@ -1,7 +1,12 @@
+'use client'
 import Link from "next/link";
 import { SearchX } from "lucide-react";
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+      document.title = "404 | MediQueue";
+    }, []);
   return (
     <section className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-base-100 px-6">
       <div className="max-w-2xl text-center">
