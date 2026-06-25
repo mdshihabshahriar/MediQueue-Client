@@ -149,7 +149,7 @@ const BookingModal = ({ tutor, isOpen, onClose }) => {
               <label className="text-xs text-gray-500 mb-1 block">Tutor</label>
               <input
                 type="text"
-                value={`${tutor.tutorName} (${tutor._id})`}
+                value={`${tutor.tutorName}`}
                 readOnly
                 className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-500 dark:bg-slate-900"
               />
