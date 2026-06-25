@@ -1,36 +1,168 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 MediQueue - Tutor Booking Platform
 
-## Getting Started
+🔗 Live Site: https://mediqueue-tau-eight.vercel.app
 
-First, run the development server:
+MediQueue is a tutor booking web application where students can register, log in, browse available tutors, and book online learning sessions based on subject and time availability. The system generates digital session tokens for each booking and allows users to manage their scheduled classes efficiently.
+The platform focuses on simplifying the tutor booking process by eliminating manual scheduling, preventing time slot conflicts, and ensuring a smooth and organized learning experience for students.
+
+---
+
+## 🚀 Features
+
+- 🔐 Secure Authentication using Email/Password and Google Login
+- 👨‍🏫 Browse and search tutors with dynamic filtering options
+- 📅 Book tutor sessions with automatic slot management
+- ➕ Add, update, and delete tutor profiles
+- 📚 Manage personal tutor listings from the My Tutors dashboard
+- 🎫 View and manage booked sessions with cancellation support
+- 🌙 Dark & Light Theme support across the application
+- 📱 Fully responsive design for Mobile, Tablet, and Desktop
+- 🔍 Tutor search using case-insensitive regex filtering
+- 📆 Filter tutors by registration/session dates
+- 🔒 Protected routes using JWT authentication
+- ⚡ Smooth animations with Framer Motion
+- 🚫 Custom error handling, toast notifications, loading spinners, and 404 page
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- Next.js 15
+- React.js
+- Tailwind CSS
+- DaisyUI
+- Framer Motion
+- React Select
+- React Hot Toast
+- Better Auth
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- JWT Authentication
+
+### Deployment
+
+- Vercel (Frontend)
+- Vercel (Backend)
+- MongoDB Atlas (Database)
+
+---
+
+## 📂 Main Pages
+
+### Public Pages
+
+- Home Page
+- Tutors Page
+- Login Page
+- Register Page
+
+### Private Pages
+
+- Add Tutor
+- Tutor Details
+- My Tutors
+- My Booked Sessions
+- User Profile
+
+---
+
+## 🎯 Key Functionalities
+
+### Tutor Management
+
+- Create tutor profiles
+- Update tutor information
+- Delete tutor listings
+- Manage tutor availability
+
+### Session Booking
+
+- Book available tutor sessions
+- Automatic slot reduction after booking
+- Prevent duplicate bookings
+- Cancel bookings and restore slots
+
+### Search & Filter
+
+- Search tutors by name
+- Filter tutors using date range
+- Real-time tutor discovery experience
+
+---
+
+## 🔑 Environment Variables
+
+### Client
+
+```env
+NEXT_PUBLIC_SERVER_URL=
+```
+
+### Server
+
+```env
+PORT=
+MONGODB_URI=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+CLIENT_URL=
+GOOGLE_CLIENTID=
+GOOGLE_SECRET=
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/your-username/mediqueue-client.git
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📸 Project Highlights
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Professional UI/UX Design
+- Responsive Layout
+- Dynamic Page Titles
+- Protected Routes
+- JWT Authentication
+- CRUD Operations
+- Dark/Light Theme
+- Search & Filter Functionality
+- Session Slot Management
+- Modern Dashboard Experience
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 👨‍💻 Developer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**MD. Shihab Shahriar**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+BSc in Computer Science & Engineering
 
-## Deploy on Vercel
+Passionate about Web Development, Software Engineering, and Building Scalable Applications.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+⭐ If you like this project, don't forget to give it a star.
