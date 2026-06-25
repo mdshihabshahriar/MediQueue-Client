@@ -49,7 +49,6 @@ const MyTutorsPage = () => {
   fetchTutors();
 }, [user?.id]);
 
-
   const handleUpdated = (updatedTutor) => {
     setTutors((prev) =>
       prev.map((t) => (t._id === updatedTutor._id ? updatedTutor : t))
