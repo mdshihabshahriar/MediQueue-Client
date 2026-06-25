@@ -20,34 +20,17 @@ const MyTutorsPage = () => {
   const [editingTutor, setEditingTutor] = useState(null);
   const [deletingTutor, setDeletingTutor] = useState(null);
 
-  useEffect(() => {
-  const fetchTutors = async () => {
+useEffect(() => {
     if (!user?.id) return;
 
-    try {
-      const token = await authClient.getAccessToken();
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors?userId=${user.id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      const data = await res.json();
-
-      setTutors(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchTutors();
-}, [user?.id]);
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors?userId=${user.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setTutors(Array.isArray(data) ? data : []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [user?.id]);
 
   const handleUpdated = (updatedTutor) => {
     setTutors((prev) =>
